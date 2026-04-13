@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Bun
+        run: curl -fsSL https://bun.sh/install | bash
+
+      - name: Add Bun to PATH
+        run: echo "$HOME/.bun/bin" >> $GITHUB_PATH
+
+      - run: bun install --frozen-lockfile
+      - run: bunx tsc --noEmit
+      - run: bun run build
