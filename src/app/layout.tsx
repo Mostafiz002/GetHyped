@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "GetHyped Clone",
+  title: "Get Hyped - Social first content agency",
   description: "A Clone of GetHyped",
 };
 
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.className}  h-full antialiased`}>
-      <body className="min-h-full flex  flex-col bg-[#faf4ec]">{children}</body>
+      <body className="min-h-full flex  flex-col bg-[#faf4ec]">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

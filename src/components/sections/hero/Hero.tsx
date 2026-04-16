@@ -94,7 +94,7 @@ export default function Hero() {
                 initial="base"
                 animate={getCardVariant(i)}
                 variants={cardVariants}
-                className="absolute left-6 lg:left-10 top-10 lg:top-0 w-75 md:w-90 h-112.5 md:h-116.25 cursor-pointer"
+                className="absolute left-6 lg:left-10 top-10 lg:top-0 w-75 md:w-90 h-112.5 md:h-116.25 rounded-4xl overflow-hidden"
                 onHoverStart={() => setHoveredCardIndex(i)}
                 onHoverEnd={() => handleHoverEnd(i)}
               >
