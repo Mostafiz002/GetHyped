@@ -1,6 +1,6 @@
 const HeroVideo = ({ link }: { link: string }) => {
   return (
-    <div className="w-full h-full overflow-hidden rounded-4xl">
+    <div className="w-full h-full overflow-hidden ">
       <video
         muted
         loop

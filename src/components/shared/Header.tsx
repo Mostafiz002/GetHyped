@@ -151,11 +151,11 @@ export default function Header() {
               skewX: 3,
               borderRadius: "10px",
               padding: "5px",
-              gap: "8px",
+              gap: "4px",
               paddingLeft: "8px",
             }}
             whileTap={{ skewY: 3, scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            transition={{ type: "spring", stiffness: 400, damping: 16 }}
           >
             Get Results
             <img
