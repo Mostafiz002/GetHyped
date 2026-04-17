@@ -14,7 +14,7 @@ const StatCard = ({
   className,
 }: StatCardProps) => (
   <div
-    className={`p-8 rounded-4xl text-left flex flex-col justify-between h-full text-black shadow-xl ${color} ${className}`}
+    className={`p-8 rounded-4xl text-left flex flex-col justify-between h-full text-black/85 shadow-xl ${color} ${className}`}
   >
     <h2 className="text-[70px] leading-none font-semibold tracking-tighter">
       {title}
