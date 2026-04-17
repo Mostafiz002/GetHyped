@@ -72,13 +72,24 @@ export default function Hero() {
   };
 
   return (
-    <section className="pt-34 md:pt-40 pb-0 lg:pb-16 bg-[#FAF4EC] overflow-hidden min-h-screen">
+    <section className="pt-28 md:pt-40 pb-0 lg:pb-16 bg-[#FAF4EC] overflow-hidden min-h-screen">
       <Container>
         <div className="max-w-5xl">
-          <h1 className="text-black text-6xl lg:text-[6.375rem] font-semibold leading-[0.96] tracking-tight">
-            Get Hyped. Get <span className="hidden md:inline"><br /></span> Noticed. Get Results.
+          <h1 className="text-black text-5xl md:text-6xl lg:text-[6.375rem] font-semibold leading-[0.96] tracking-tight">
+            Get Hyped.
+            <span className="inline md:hidden">
+              <br />
+            </span>
+            <span className="hidden md:inline">
+              <br />
+            </span>
+            Noticed.{" "}
+            <span className="inline md:hidden">
+              <br />
+            </span>
+            Get Results.
           </h1>
-          <p className="mt-5 lg:mt-8 text-[1.50rem] leading-snug text-black/80 font-bold max-w-md">
+          <p className="mt-5 lg:mt-8 text-[1.2rem] md:text-[1.50rem] leading-tight md:leading-snug text-black/80 font-bold max-w-md">
             Klaar met gokken op content <br className="hidden md:block" /> die
             niets oplevert?
           </p>
@@ -86,7 +97,7 @@ export default function Hero() {
 
         {/* cards  */}
         <div className="flex justify-start lg:justify-center mt-4 lg:mt-14 overflow-x-auto lg:overflow-visible pb-20 no-scrollbar">
-          <div className="relative h-137.5 min-w-325 lg:min-w-0 lg:w-full lg:max-w-365">
+          <div className="relative h-100 md:h-137.5 min-w-325 lg:min-w-0 lg:w-full lg:max-w-365">
             {[0, 1, 2, 3].map((i) => (
               <motion.div
                 key={i}
@@ -94,7 +105,7 @@ export default function Hero() {
                 initial="base"
                 animate={getCardVariant(i)}
                 variants={cardVariants}
-                className="absolute left-6 lg:left-10 top-10 lg:top-0 w-85 md:w-90 h-100.5 md:h-116.25 rounded-4xl overflow-hidden"
+                className="absolute left-6 lg:left-10 top-10 lg:top-0 w-75 md:w-90 h-90 md:h-116.25 rounded-4xl overflow-hidden"
                 onHoverStart={() => setHoveredCardIndex(i)}
                 onHoverEnd={() => handleHoverEnd(i)}
               >

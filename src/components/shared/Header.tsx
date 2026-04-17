@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
@@ -79,7 +79,8 @@ export default function Header() {
   // Hide on scroll logic
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
-    if (latest > previous && latest > 50) {
+
+    if (latest > previous && latest > 10 && !isOpen) {
       setHidden(true);
     } else {
       setHidden(false);
@@ -88,17 +89,29 @@ export default function Header() {
 
   const closeMenu = () => setIsOpen(false);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   return (
     <motion.header
       variants={{
         visible: { y: 0 },
         hidden: { y: "-110%" },
       }}
-      animate={hidden ? "hidden" : "visible"}
+      animate={isOpen ? "visible" : hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-0 left-0 w-full z-1000 pt-4 pb-4 bg-transparent"
     >
-      <Container className="flex justify-between items-center px-6 relative z-110">
+      <Container className="flex justify-between items-center px-4! lg:px-6 relative z-110">
         {/* Logo */}
         <Link href="/" className="shrink-0 relative z-120" onClick={closeMenu}>
           <Image
@@ -106,7 +119,7 @@ export default function Header() {
             alt="Get Hyped Logo"
             width={150}
             height={50}
-            className="object-contain"
+            className="object-contain w-30 lg:w-37"
             priority
           />
         </Link>
@@ -174,9 +187,9 @@ export default function Header() {
           }`}
         >
           {isOpen ? (
-            <X size={24} className="text-black" />
+            <X size={20} className="text-black" />
           ) : (
-            <Menu size={24} className="text-black" />
+            <Menu size={20} className="text-black" />
           )}
         </button>
       </Container>
@@ -199,12 +212,12 @@ export default function Header() {
               <Link
                 href="#results"
                 onClick={closeMenu}
-                className="flex items-center tracking-tight gap-2 bg-black text-white font-semibold text-[24px] p-2 pl-3 rounded-[14px] cursor-pointer"
+                className="flex items-center tracking-tight gap-2 bg-black text-white font-semibold text-[20px] p-1.5 pl-3 rounded-[14px] cursor-pointer"
               >
                 Get Results
                 <img
                   src="https://img.icons8.com/3d-fluency/94/fire-element--v2.png"
-                  className="w-12 h-12 p-2 bg-white rounded-[10px]"
+                  className="w-12 h-12 p-1.5 bg-white rounded-[10px]"
                   alt="Fire"
                 />
               </Link>
@@ -221,7 +234,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={closeMenu}
-                    className="inline-block bg-white px-5.5 py-3.5 text-center rounded-2xl text-[28px] font-semibold text-black active:scale-95 transition-transform"
+                    className="inline-block bg-white px-5.5 py-3.5 text-center rounded-2xl text-[24px] font-semibold text-black active:scale-95 transition-transform"
                   >
                     {link.name}
                   </Link>
