@@ -72,7 +72,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="pt-24 md:pt-32 pb-40 bg-[#FAF4EC] overflow-hidden min-h-screen">
+    <section className="pt-24 md:pt-40 pb-40 bg-[#FAF4EC] overflow-hidden min-h-screen">
       <Container>
         <div className="max-w-5xl">
           <h1 className="text-black text-[clamp(2.5rem,7vw,6.375rem)] font-semibold leading-[0.96] tracking-tight">
