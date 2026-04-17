@@ -7,7 +7,6 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import HeroVideo from "../hero/HeroVideo";
 
-
 const MotionLink = motion(Link);
 
 export default function ClientSection() {
@@ -21,12 +20,12 @@ export default function ClientSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05, 
+        staggerChildren: 0.05,
       },
     },
   };
 
-  const childVariants: Variants  = {
+  const childVariants: Variants = {
     hidden: {
       opacity: 0,
       filter: "blur(10px)",
@@ -55,7 +54,7 @@ export default function ClientSection() {
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }} 
+              viewport={{ once: false, amount: 0.3 }}
             >
               {words.map((word, i) => (
                 <motion.span
@@ -72,7 +71,7 @@ export default function ClientSection() {
           {/* Row 2 */}
           <div className="grid grid-cols-1 md:grid-cols-12 items-end gap-y-10">
             {/* Left Side */}
-            <div className="col-span-1 md:col-span-2 flex justify-center lg:block md:self-start">
+            <div className="col-span-1 px-4 md:px-0 md:col-span-2 flex justify-center lg:block md:self-start">
               <figure className="relative aspect-4/5 hidden md:block w-full rounded-[20px] overflow-hidden">
                 <Image
                   src="/images/image2.png"
@@ -97,27 +96,27 @@ export default function ClientSection() {
                 </p>
 
                 <MotionLink
-                  href="/about"
+                  href="/"
                   className="group inline-flex items-center"
                 >
                   <motion.div
-                    className="flex items-center tracking-tight border border-black text-black/80 font-bold text-[18px] p-1 pl-2 rounded-[14px] cursor-pointer"
+                    className="flex items-center tracking-tight border border-black text-black/80 font-bold text-[16px] p-1 pl-2 rounded-xl! cursor-pointer"
                     whileHover={{
                       skewY: -6,
                       skewX: 3,
                       borderRadius: "10px",
                       padding: "5px",
-                      gap: "4px",
+                      gap: "2px",
                       paddingLeft: "8px",
                     }}
                     whileTap={{ skewY: 3, scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 16 }}
+                    transition={{ type: "spring", stiffness: 250, damping: 20 }}
                   >
                     Leer ons kennen
                     <ArrowRight
                       strokeWidth={2.5}
-                      className="p-2 ml-1 text-white bg-black rounded-[10px]"
-                      size={38}
+                      className="p-2 ml-1 text-white bg-black rounded-lg"
+                      size={34}
                     />
                   </motion.div>
                 </MotionLink>

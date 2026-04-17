@@ -212,7 +212,7 @@ export default function Header() {
               <Link
                 href="#results"
                 onClick={closeMenu}
-                className="flex items-center tracking-tight gap-2 bg-black text-white font-semibold text-[20px] p-1.5 pl-3 rounded-[14px] cursor-pointer"
+                className="flex items-center tracking-tight gap-2 bg-black text-white font-semibold text-[16px] p-1.5 pl-3 rounded-[14px] cursor-pointer"
               >
                 Get Results
                 <img
@@ -234,7 +234,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={closeMenu}
-                    className="inline-block bg-white px-5.5 py-3.5 text-center rounded-2xl text-[24px] font-semibold text-black active:scale-95 transition-transform"
+                    className="inline-block bg-white px-5.5 py-3.5 text-center rounded-2xl text-[20px] font-semibold text-black active:scale-95 transition-transform"
                   >
                     {link.name}
                   </Link>
