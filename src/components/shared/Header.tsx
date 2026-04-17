@@ -4,7 +4,13 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  Variants,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
@@ -66,12 +72,34 @@ const ctaVariants: Variants = {
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  const { scrollY } = useScroll();
+
+  // Hide on scroll logic
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 50) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-1000 pt-4 pb-4 bg-transparent">
+    <motion.header
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-110%" },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-0 left-0 w-full z-1000 pt-4 pb-4 bg-transparent"
+    >
       <Container className="flex justify-between items-center px-6 relative z-110">
+        {/* Logo */}
         <Link href="/" className="shrink-0 relative z-120" onClick={closeMenu}>
           <Image
             src="/images/gethypedlogo.svg"
@@ -138,13 +166,15 @@ export default function Header() {
           </MotionLink>
         </div>
 
-        {/* Menu Trigger */}
+        {/* Mobile Menu Trigger */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`lg:hidden relative z-120 p-3 rounded-xl  active:scale-95 transition-transform ${isOpen ? "bg-white" : " bg-[#fcb8fa]"}`}
+          className={`lg:hidden relative z-120 p-3 rounded-xl active:scale-95 transition-transform ${
+            isOpen ? "bg-white" : "bg-[#fcb8fa]"
+          }`}
         >
           {isOpen ? (
-            <X size={24} className="text-black " />
+            <X size={24} className="text-black" />
           ) : (
             <Menu size={24} className="text-black" />
           )}
@@ -161,19 +191,20 @@ export default function Header() {
             exit="hidden"
             className="fixed inset-0 rounded-2xl m-2.5 mt-3 bg-[#fcb8fa] z-100 flex flex-col items-center justify-center lg:hidden px-6"
           >
+            {/* Mobile Bottom CTA */}
             <motion.div
               variants={ctaVariants}
-              className="absolute bottom-10 left-1/2 -translate-x-1/2 "
+              className="absolute bottom-10 left-1/2 -translate-x-1/2"
             >
               <Link
                 href="#results"
                 onClick={closeMenu}
-                className="flex items-center tracking-tight gap-2 bg-black text-white font-semibold text-[24px] p-2 pl-3 rounded-[14px] cursor-pointer "
+                className="flex items-center tracking-tight gap-2 bg-black text-white font-semibold text-[24px] p-2 pl-3 rounded-[14px] cursor-pointer"
               >
                 Get Results
                 <img
                   src="https://img.icons8.com/3d-fluency/94/fire-element--v2.png"
-                  className="w-12 h-12 p-2  bg-white rounded-[10px]"
+                  className="w-12 h-12 p-2 bg-white rounded-[10px]"
                   alt="Fire"
                 />
               </Link>
@@ -200,6 +231,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
