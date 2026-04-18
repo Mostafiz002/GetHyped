@@ -50,7 +50,7 @@ const containerRef = useRef(null);
   const translations = [y1, y2, y3];
 
   return (
-    <section ref={containerRef} className="pt-10 pb-40 overflow-hidden">
+    <section ref={containerRef} className="pt-10 pb-12 lg:pb-30 overflow-hidden">
         {/* Row 1 */}
         <div className="mb-10 md:mb-18 max-w-319! mx-auto px-4 md:px-6">
           <h2 className="tracking-tighter text-[2.9rem] md:text-[6.2rem] font-bold leading-[0.9] md:leading-none">

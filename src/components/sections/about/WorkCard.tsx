@@ -65,7 +65,7 @@ export function WorkCard({
       viewport={{ once: true }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative group cursor-pointer rounded-[2.5rem] overflow-hidden border-12 hover:-rotate-2 transition-all duration-300 ${color} aspect-4/5`}
+      className={`relative group cursor-pointer rounded-[2.5rem] overflow-hidden border-8 hover:-rotate-2 transition-all duration-300 ${color} aspect-4/5`}
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
