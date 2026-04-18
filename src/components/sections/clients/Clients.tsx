@@ -95,10 +95,7 @@ export default function ClientSection() {
                   resultaat.
                 </p>
 
-                <MotionLink
-                  href="/"
-                  className="group inline-flex items-center"
-                >
+                <MotionLink href="/" className="group inline-flex items-center">
                   <motion.div
                     className="flex items-center tracking-tight border border-black text-black/80 font-bold text-[16px] p-1 pl-2 rounded-xl! cursor-pointer"
                     whileHover={{
@@ -125,7 +122,14 @@ export default function ClientSection() {
 
             {/* Bottom Right Arrow */}
             <div className="hidden md:flex md:col-start-12 lg:col-start-11 lg:col-span-1 justify-end">
-              <div className="group border cursor-pointer border-black rounded-[14px] h-10.5 w-10.5 flex flex-col items-center justify-center overflow-hidden">
+              <div
+                onClick={() => {
+                  document
+                    .getElementById("expertise")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="group border cursor-pointer border-black rounded-[14px] h-10.5 w-10.5 flex flex-col items-center justify-center overflow-hidden"
+              >
                 <motion.div
                   className="flex flex-col items-center shrink-0"
                   initial={{ y: 20 }}

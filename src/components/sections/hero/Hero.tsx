@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import Container from "@/components/ui/Container";
 import HeroVideo from "./HeroVideo";
@@ -22,6 +22,16 @@ const initialCardStates = [
 
 export default function Hero() {
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const currentOrder = isMobile ? [1, 0, 3, 2] : [0, 1, 2, 3];
 
   // Track the current rotation for card
   const [rotationSteps, setRotationSteps] = useState([0, 0, 0, 0]);
@@ -98,10 +108,10 @@ export default function Hero() {
         {/* cards  */}
         <div className="flex justify-start lg:justify-center mt-4 lg:mt-14 overflow-x-auto lg:overflow-visible pb-20 no-scrollbar">
           <div className="relative h-100 md:h-137.5 min-w-325 lg:min-w-0 lg:w-full lg:max-w-365">
-            {[0, 1, 2, 3].map((i) => (
+            {currentOrder.map((i,visualIndex) => (
               <motion.div
                 key={i}
-                custom={i}
+                custom={isMobile ? visualIndex : i}
                 initial="base"
                 animate={getCardVariant(i)}
                 variants={cardVariants}

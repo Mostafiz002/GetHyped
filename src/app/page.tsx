@@ -1,3 +1,4 @@
+import About from "@/components/sections/about/About";
 import ClientSection from "@/components/sections/clients/Clients";
 import ExpertiseSection from "@/components/sections/expertise/Expertise";
 import Hero from "@/components/sections/hero/Hero";
@@ -10,6 +11,7 @@ export default function HomePage() {
       <Hero />
       <ClientSection />
       <ExpertiseSection />
+      <About />
     </main>
   );
 }

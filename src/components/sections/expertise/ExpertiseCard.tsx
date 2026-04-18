@@ -96,7 +96,7 @@ export default function ExpertiseCard({
               {description}
             </h3>
             <p
-              className={`text-sm lg:text-lg text-black/85 font-semibold tracking-tight ${textColor}`}
+              className={`text-sm mb-6 lg:text-lg text-black/85 font-semibold tracking-tight ${textColor}`}
             >
               {subtext}
             </p>
@@ -143,7 +143,7 @@ export default function ExpertiseCard({
 
           {/* md + lg Video Frame */}
           <div
-            className={`relative hidden md:block w-36 h-52 sm:w-44 sm:h-60 md:w-82 md:h-120 rounded-3xl overflow-hidden rotate-3 border-4 md:border-8 mt-auto translate-y-8 translate-x-4 md:-translate-y-5.75 md:translate-x-0 bg-gray-200 ${
+            className={`relative hidden md:block w-36 h-52 sm:w-44 sm:h-60 md:w-82 md:h-120 rounded-3xl overflow-hidden rotate-3 border-4.5 md:border-10 mt-auto translate-y-8 translate-x-4 md:-translate-y-5.75 md:translate-x-0 bg-gray-200 ${
               title === "Social strategy" ? "border-[#fa5424]" : "border-white"
             }`}
           >

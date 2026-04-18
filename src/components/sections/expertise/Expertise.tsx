@@ -48,7 +48,7 @@ const EXPERTISES = [
     subtext:
       "We duiken in de cijfers om te snappen wat écht werkt. En sturen jouw content scherp bij.",
     color: "bg-[#1E90FF]",
-    textColor: "text-white",
+    textColor: "text-[#161616]",
     buttonColor: "bg-[#fff]",
     mediaUrl: "https://gethyped.b-cdn.net/Expertises/Data%20comp.mp4",
   },
@@ -56,7 +56,7 @@ const EXPERTISES = [
 
 export default function ExpertiseSection() {
   return (
-    <section className="bg-[#f9f5f0] pb-20">
+    <section id="expertise" className="bg-[#f9f5f0] pb-20">
       <Container>
         <div className="relative">
           {EXPERTISES.map((expertise, index) => (
