@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Geist } from "next/font/google";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className}  h-full antialiased`}>
+    <html lang="en" className={cn("h-full", "antialiased", inter.className, "font-sans", geist.variable)}>
       <body className="min-h-full flex  flex-col bg-[#faf4ec]">
         <SmoothScroll>{children}</SmoothScroll>
       </body>

@@ -3,6 +3,7 @@ import { BrandMarquee } from "@/components/sections/brandMarquee/BrandMarquee";
 import ClientSection from "@/components/sections/clients/Clients";
 import ExpertiseSection from "@/components/sections/expertise/Expertise";
 import Hero from "@/components/sections/hero/Hero";
+import Footer from "@/components/sections/footer/Footer";
 import Header from "@/components/shared/Header";
 
 export default function HomePage() {
@@ -14,6 +15,7 @@ export default function HomePage() {
       <ExpertiseSection />
       <About />
       <BrandMarquee />
+      <Footer/>
     </main>
   );
 }
